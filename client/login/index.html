@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>widgets-min -  build</title>
+</head>
+<body>
+    <div class="components">
+        <h1>Login</h1>
+        <hr />
+        <div class="container WidgetComponent" id="WidgetComponent">
+            loading ...
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react.js" charset="utf-8"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.4.0/react-dom.js" charset="utf-8"></script>
+    <script src="/build/login.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        'use strict';
+
+        const WidgetComponent = SM360.default;
+        // const WidgetComponent = SM360.widgets.Main;
+
+        function renderWidget () {
+            var instance = React.createElement(WidgetComponent, null, null);
+            ReactDOM.render(instance, document.getElementById('WidgetComponent'));
+        }
+
+        renderWidget();
+    </script>
+</body>
+</html>

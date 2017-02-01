@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>widgets-min -  bundle</title>
+</head>
+<body>
+    <div class="components">
+        <h1>Login</h1>
+        <hr />
+        <div class="container WidgetComponent" id="WidgetComponent">
+            loading ...
+        </div>
+    </div>
+
+    <script src="/jspm_packages/system.js" charset="utf-8"></script>
+    <script src="/jspm.config.js" charset="utf-8"></script>
+    <script src="/bundle/login.js" charset="utf-8"></script>
+
+    <script type="text/javascript">
+        'use strict';
+
+        function renderWidget () {
+            var instance = React.createElement(WidgetComponent, null, null);
+            ReactDOM.render(instance, document.getElementById('WidgetComponent'));
+        }
+
+        let WidgetComponent, WidgetEntry, React, ReactDOM;
+        function firstRender (modules) {
+            console.debug('imports are:', modules);
+
+            [WidgetEntry, React, ReactDOM] = modules;
+            WidgetComponent = WidgetEntry.default;
+            // WidgetComponent = WidgetEntry.widgets.Main;
+
+            renderWidget();
+        }
+
+        Promise.all([
+                'login/entry.js',
+                'react',
+                'react-dom'
+            ].map((module) => System.import(module))
+        ).then((modules) => firstRender(modules))
+        .catch(console.error.bind(console));
+    </script>
+</body>
+</html>
