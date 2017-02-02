@@ -10,7 +10,7 @@
     "start": "node server/app.js",
     "bundle": "./node_modules/.bin/jspm bundle \"$npm_config_name\" bundle/$npm_config_name.js -d",
     "watch": "./node_modules/.bin/jspm bundle \"$npm_config_name\" bundle/$npm_config_name.js -wd",
-    "build": "./node_modules/.bin/jspm build \"$npm_config_name\" build/$npm_config_name.js --format umd --externals react --global-deps '{\"react\":\"React\"}' --global-name SM360  --production --no-mangle"
+    "build": "./node_modules/.bin/jspm build \"$npm_config_name\" build/$npm_config_name.js --format umd --externals react react-dom --global-deps '{\"react\":\"React\",\"react-dom\":\"ReactDOM\"}' --global-name SM360  --minify --production"
   },
   "devDependencies": {
     "express": "^4.14.1",
